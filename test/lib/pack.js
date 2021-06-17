@@ -53,7 +53,7 @@ t.test('should pack current directory with no arguments', (t) => {
 
     const filename = `npm-${require('../../package.json').version}.tgz`
     t.strictSame(OUTPUT, [[filename]])
-    t.strictSame(tarballFileName, filename)
+    t.strictSame(tarballFileName, path.resolve(filename))
     t.end()
   })
 })
@@ -87,7 +87,7 @@ t.test('follows pack-destination config', (t) => {
 
     const filename = `npm-${require('../../package.json').version}.tgz`
     t.strictSame(OUTPUT, [[filename]])
-    t.strictSame(tarballFileName, path.join('/tmp/test', filename))
+    t.strictSame(tarballFileName, path.resolve('/tmp/test', filename))
     t.end()
   })
 })
